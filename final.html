@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Surprise 🎉</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      color: #f66ccc;
+    }
+    p {
+      font-size: 1.5em;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 25px;
+      background-color: #f06292;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: yellow;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎂 Happy Birthday Khiroo! 🎉</h1>
+  <p>May your day be filled with laughter, love, and unlimited happiness! ❤️</p>
+  <p>– Tumhara Don Bhai 😎<br>English nahi samjha? Google kr le! 🤓</p>
+
+  <button onclick="playSurprise()">🎧 Click for Surprise</button>
+
+  <audio id="myAudio">
+    <source src="khiro.mp3.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function playSurprise() {
+      const audio = document.getElementById("myAudio");
+      audio.play();
+
+      // Firework blast
+      for (let i = 0; i < 30; i++) {
+        const firework = document.createElement("div");
+        firework.className = "firework";
+        firework.style.left = (Math.random() * window.innerWidth) + "px";
+        firework.style.top = (Math.random() * window.innerHeight) + "px";
+        firework.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        document.body.appendChild(firework);
+
+        setTimeout(() => firework.remove(), 1000);
+      }
+    }
+  </script>
+
+</body>
+</html>
